@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<namespace xmlns="http://www.mulesoft.org/schema/mule/tooling.attributes" xmlns:mule="http://www.mulesoft.org/schema/mule/core" url="http://www.mulesoft.org/schema/mule/google-translate" prefix="google-translate">
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="GoogleTranslate" description="" icon="" localId="parentConfig" image="" abstract="true" extends="http://www.mulesoft.org/schema/mule/google-translate/abstractGoogle-translateConnectorGeneric"></global-cloud-connector>
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="GoogleTranslate" description="Global GoogleTranslate configuration information." icon="icons/small/google-translate-connector-24x16.png" localId="config" image="icons/large/google-translate-connector-48x32.png" abstract="false" extends="http://www.mulesoft.org/schema/mule/google-translate/parentConfig" connectivityTesting="off" metaData="static" metaDataKeyDisplay="DISPLAY_NAME" supportsUserDefinedMetaData="false">
+    <attribute-category caption="General" description="Google-translate configuration properties.">
+      <group id="google-translateGenericProperties" caption="Basic Settings">
+        <name name="name" caption="Name" description="Give a name to this configuration so it can be later referenced by config-ref." required="true"></name>
+      </group>
+    </attribute-category>
+  </global-cloud-connector>
+  <cloud-connector caption="Abstractgoogle-translateconnectorgeneric" description="Interact with Google-translate." icon="icons/small/google-translate-connector-24x16.png" localId="abstractGoogle-translateConnectorGeneric" image="icons/large/google-translate-connector-48x32.png" abstract="true">
+    <attribute-category caption="General" description="General.">
+      <group id="abstractGoogle-translateConnectorGeneric" caption="Basic Settings">
+        <globalRef requiredType="http://www.mulesoft.org/schema/mule/google-translate/config" name="config-ref" caption="Connector Configuration" description="Specify which configuration to use for this invocation." required="true"></globalRef>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector versions="[3.5.0,8.0.0]" aliasId="org.mule.tooling.ui.modules.core.pattern.google-translate" caption="GoogleTranslate" description="Google Translate Anypoint Connector." icon="icons/small/google-translate-connector-24x16.png" localId="google-translate-connector" image="icons/large/google-translate-connector-48x32.png" extends="http://www.mulesoft.org/schema/mule/google-translate/abstractGoogle-translateConnectorGeneric">
+    <attribute-category caption="General" description="General.">
+      <group id="google-translateConnectorGeneric" caption="Basic Settings">
+        <modeSwitch alwaysCombo="true" name="Google-translate operations to execute" caption="Operation" description="Operation.">
+          <no-operation abstractElement="http://www.mulesoft.org/schema/mule/google-translate/abstractGoogle-translateConnectorGeneric" versions="[3.5.0,8.0.0]" connector-name="processor"></no-operation>
+          <mode modeId="http://www.mulesoft.org/schema/mule/google-translate/get-detect-language" modeLabel="Get detect language"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/google-translate/get-supported-languages" modeLabel="Get supported languages"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/google-translate/get-translate" modeLabel="Get translate"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/google-translate/post-detect-language" modeLabel="Post detect language"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/google-translate/post-translate" modeLabel="Post translate"></mode>
+        </modeSwitch>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Get Detect Language" icon="icons/small/google-translate-connector-24x16.png" localId="get-detect-language" image="icons/large/google-translate-connector-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/google-translate/abstractGoogle-translateConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="apiKey" caption="Api Key" description="" required="true" javaType="java.lang.String"></string>
+        <string name="text" caption="Text" description="" required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Get Supported Languages" icon="icons/small/google-translate-connector-24x16.png" localId="get-supported-languages" image="icons/large/google-translate-connector-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/google-translate/abstractGoogle-translateConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="apiKey" caption="Api Key" description="" required="true" javaType="java.lang.String"></string>
+        <string defaultValue="en" name="targetLanguage" caption="Target Language" description="" required="false" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Get Translate" icon="icons/small/google-translate-connector-24x16.png" localId="get-translate" image="icons/large/google-translate-connector-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/google-translate/abstractGoogle-translateConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="apiKey" caption="Api Key" description="" required="true" javaType="java.lang.String"></string>
+        <string name="sourceLanguage" caption="Source Language" description="" required="true" javaType="java.lang.String"></string>
+        <string name="targetLanguage" caption="Target Language" description="" required="true" javaType="java.lang.String"></string>
+        <string name="text" caption="Text" description="" required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Post Detect Language" icon="icons/small/google-translate-connector-24x16.png" localId="post-detect-language" image="icons/large/google-translate-connector-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/google-translate/abstractGoogle-translateConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="apiKey" caption="Api Key" description="" required="true" javaType="java.lang.String"></string>
+        <string defaultValue="GET" name="header" caption="Header" description="" required="false" javaType="java.lang.String"></string>
+        <string name="text" caption="Text" description="" required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Post Translate" icon="icons/small/google-translate-connector-24x16.png" localId="post-translate" image="icons/large/google-translate-connector-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/google-translate/abstractGoogle-translateConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="apiKey" caption="Api Key" description="" required="true" javaType="java.lang.String"></string>
+        <string defaultValue="GET" name="header" caption="Header" description="" required="false" javaType="java.lang.String"></string>
+        <string name="sourceLanguage" caption="Source Language" description="" required="true" javaType="java.lang.String"></string>
+        <string name="targetLanguage" caption="Target Language" description="" required="true" javaType="java.lang.String"></string>
+        <string name="text" caption="Text" description="" required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+</namespace>

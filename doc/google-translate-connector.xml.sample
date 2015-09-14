@@ -1,0 +1,3 @@
+<!-- BEGIN_INCLUDE(google-translate:greet) -->
+    <google-translate:greet config-ref="" friend="#[map-payload:friend]" />
+<!-- END_INCLUDE(google-translate:greet) -->
